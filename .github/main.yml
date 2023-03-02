@@ -1,0 +1,22 @@
+on:
+  push:
+    branches:
+      - main
+
+name: Publish repo to server
+jobs:
+  FTP-Deploy-Action:
+    name: FTP-Deploy-Action
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get latest code
+        uses: actions/checkout@v3
+
+      - name: sync files
+        uses: SamKirkland/FTP-Deploy-Action@4.3.3
+        with:
+          server: cs293.watzek.cloud
+          username: ${{ secrets.username }}
+          password: ${{ secrets.password }}
+          protocol: ftps
+          port: 22
