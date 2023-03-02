@@ -18,5 +18,6 @@ jobs:
           server: cs293.watzek.cloud
           username: ${{ secrets.username }}
           password: ${{ secrets.password }}
-          protocol: ftps
+          protocol: sftp
+          loca;_dir: public_html
           port: 22
